@@ -6,12 +6,12 @@
 data <- read.table("./household_power_consumption.txt",sep=";", stringsAsFactors=FALSE,skip=66637,nrows=2880)
 
 ## open graphics device
-##png("./plot4.png")
+png("./plot4.png")
 
 ## make line graph as shown
 
 par(mfrow=c(2,2))
-hist(as.numeric(data[,3]),main="Global Active Power", xlab= "Global Active Power (kilowatts)",col="Red")
+plot(as.numeric(data[,3]),type="l",main="Global Active Power", xlab= "Global Active Power (kilowatts)")
 plot(as.numeric(data[,5]),type="l", ylab="Voltage", axes=FALSE,frame.plot=TRUE,xlab="",cex.lab=0.75,sub="datetime",cex.sub=.75)
 axis(1,at=c(1,1441,2880),label=c("Thu","Fri","Sat"),cex.axis=.9) 
 axis(2,cex.axis=.9)
@@ -34,5 +34,5 @@ axis(2,cex.axis=0.75)
 
 
 ## close graphics device again
-##dev.off()
+dev.off()
 
